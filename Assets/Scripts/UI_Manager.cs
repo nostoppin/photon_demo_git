@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class UI_Manager : MonoBehaviourPunCallbacks
 {
@@ -37,18 +38,19 @@ public class UI_Manager : MonoBehaviourPunCallbacks
 
     public void onJoinRoom()
     {
-        if(roomNameInputField.text == "")
+        if (roomNameInputField.text == "")
         {
             messageBox.text = "Room name cannot be blank.";
         }
         else
         {
-            PhotonNetwork.JoinRoom(roomNameInputField.text);
+            RoomOptions roomOptions = new RoomOptions();
+            roomOptions.MaxPlayers = 5;
+            PhotonNetwork.JoinOrCreateRoom(roomNameInputField.text, roomOptions, TypedLobby.Default);
+            //PhotonNetwork.JoinRoom(roomNameInputField.text);
             messageBox.text = "Joining room with name: " + roomNameInputField.text;
         }
     }
-
-    
 
     public override void OnJoinedRoom()
     {
@@ -67,7 +69,7 @@ public class UI_Manager : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.CreateRoom(roomNameInputField.text);
+            PhotonNetwork.CreateRoom(roomNameInputField.text, new RoomOptions() { MaxPlayers = 5 }, null );
             messageBox.text = "Joining room with name: " + roomNameInputField.text;
         }
     }
@@ -100,6 +102,7 @@ public class UI_Manager : MonoBehaviourPunCallbacks
     public void onStartGame()
     {
         SelectionPanel.SetActive(false);
+        PhotonNetwork.LoadLevel(1);
     }
 
 
