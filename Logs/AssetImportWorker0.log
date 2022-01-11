@@ -515,3 +515,4 @@ Received Import Request.
   path: Assets/Scripts/SpawnPlayer.cs
   artifactKey: Guid(eec173080caf62645be62b0caa07bedd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scripts/SpawnPlayer.cs using Guid(eec173080caf62645be62b0caa07bedd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96f90f869766de00364e4a83c3e6f5a1') in 0.015274 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
