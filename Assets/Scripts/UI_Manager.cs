@@ -96,7 +96,7 @@ public class UI_Manager : MonoBehaviourPunCallbacks
 
     public void setPlayerUsername()
     {
-        PhotonNetwork.NickName = usernameInputField.text; 
+        PhotonNetwork.NickName = usernameInputField.text;
     }
 
     public void onStartGame()

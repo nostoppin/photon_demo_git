@@ -15,6 +15,9 @@ public class SpawnPlayer : MonoBehaviour
 
     public GameObject playerPrefab;
 
+    UI_Manager uiManagerScriptRef;
+
+
     private void Start()
     {
         posMinX = -22f;
@@ -28,6 +31,10 @@ public class SpawnPlayer : MonoBehaviour
                                                    Random.Range(posMinZ, posMaxZ));
 
         PhotonNetwork.Instantiate(playerPrefab.name, new Vector3(-9.83f,3.42f,-16.2f), Quaternion.identity);
+
+        playerPrefab.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "PlayerName";
+
+
         //-9.83,3,42,-16.2
     }
 }
